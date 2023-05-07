@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
-import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
@@ -42,6 +41,8 @@ const MovingImg = ({ title, img, link }) => {
         whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
         ref={imgRef}
         src={img}
+        width={520}
+        height={320}
         alt={title}
         className="z-10 w-96 h-auto hidden absolute rounded-lg md:!hidden"
       />
@@ -83,6 +84,8 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
       >
         <FramerImage
           src={img}
+          width={520}
+          height={320}
           alt={title}
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
@@ -107,7 +110,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
 };
 
 const articles = ({articles}) => {
-
+  
   return (
     <>
       <Head>
@@ -131,12 +134,12 @@ const articles = ({articles}) => {
           </h2>
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
             {
-              articles.slice(0, 2).map(article => (
+              articles.slice(-2).map(article => (
                 <FeaturedArticle
                   key={article.id}
-                  img={article1}
+                  img={article.attributes.images.data[0].attributes.url}
                   title={article.attributes.title}
-                  time={`${article.attributes.time} min read`}
+                  time={`${article.attributes.time} minutos de lectura`}
                   summary={article.attributes.summary}
                   link={`/articles/${article.attributes.url}`}
                 />
@@ -152,7 +155,7 @@ const articles = ({articles}) => {
                 <Article
                   key={article.id}
                   title={article.attributes.title}
-                  img={article1}
+                  img={article.attributes.images.data[0].attributes.url}
                   date="January 27, 2023"
                   link={`/articles/${article.attributes.url}`}
                 />

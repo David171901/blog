@@ -7,9 +7,8 @@ import {
   SunIcon,
   MoonIcon,
   YoutubeIcon,
-  OutlookIcon
 } from "./Icons";
-import useThemeSwitcher from "./hooks/useThemeSwitcher";
+import useThemeSwitcher from "../hooks/useThemeSwitcher";
 import Logo from "./Logo";
 import { motion } from "framer-motion";
 
