@@ -70,7 +70,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             sm:px-4 sm:text-base
             "
           >
-            Visit Project
+            Visitar
           </Link>
         </div>
       </div>

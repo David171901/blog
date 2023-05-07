@@ -6,13 +6,6 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
-import article2 from "../../public/images/articles/create loading screen in react js.jpg";
-import article3 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
-import article4 from "../../public/images/articles/smooth scrolling in reactjs.png";
-import article5 from "../../public/images/articles/create modal component in react using react portals.png";
-import article6 from "../../public/images/articles/todo list app built using react redux and framer motion.png";
-import article7 from "../../public/images/articles/What is Redux with easy explanation.png";
-import article8 from "../../public/images/articles/What is higher order component in React.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
@@ -37,7 +30,6 @@ const MovingImg = ({ title, img, link }) => {
   return (
     <Link
       href={link}
-      target="_blank"
       onMouseMove={handleMouse}
       onMouseLeave={handleMouseLeave}
     >
@@ -87,7 +79,6 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
       />
       <Link
         href={link}
-        target="_blank"
         className="w-full inline-block cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
@@ -102,7 +93,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
               50vw"
         />
       </Link>
-      <Link href={link} target="_blank">
+      <Link href={link}>
         <h2 className="capitalize text-2xl font-bold my-2 mt-4 hover:underline xs:text-lg">
           {title}
         </h2>
@@ -115,7 +106,8 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
   );
 };
 
-const articles = () => {
+const articles = ({articles}) => {
+
   return (
     <>
       <Head>
@@ -134,74 +126,53 @@ const articles = () => {
             text="Desarrolla tus habilidades de programación: artículos, tutoriales  proyectos"
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
-          <h2 className="font-bold text-4xl w-full text-center my-16 mt-16">
+          <h2 className="font-bold text-4xl sm:text-2xl w-full text-center my-16 mt-16">
             Articulos Destacados
           </h2>
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
-            <FeaturedArticle
-              img={article1}
-              title="build a custom pagination component in reactjs from scratch"
-              time="9 min read"
-              summary="Learn how to build a custom pagination component in ReactJS from scratch. Follow this 
-              step-by-step guide to integrate Pagination component in your ReactJS project."
-              link="https://devdreaming.com/blogs/create-pagination-component-reactjs"
-            />
-
-            <FeaturedArticle
-              img={article2}
-              title="creating stunning loading screens in react: Build 3 types of loading screens"
-              time="10 min read"
-              summary="Learn how to create stunning loading screens in React with 3 different methods. 
-              Discover how to use React-Loading, React-Lottie & build a custom loading screen. Improve the 
-              user experience."
-              link="https://devdreaming.com/blogs/create-3-different-types-of-loading-screens-in-react"
-            />
+            {
+              articles.slice(0, 2).map(article => (
+                <FeaturedArticle
+                  key={article.id}
+                  img={article1}
+                  title={article.attributes.title}
+                  time={`${article.attributes.time} min read`}
+                  summary={article.attributes.summary}
+                  link={`/articles/${article.attributes.url}`}
+                />
+              ))
+            }
           </ul>
-          <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+          <h2 className="font-bold text-4xl sm:text-2xl w-full text-center my-16 mt-32">
             Todos los Articulos
           </h2>
           <ul className="flex flex-col items-center relative">
-            <Article
-              title="form validation in reactjs: build a reusable custom hook for inputs and error handling"
-              img={article3}
-              date="January 27, 2023"
-              link="https://devdreaming.com/blogs/react-form-validation-custom-hook"
-            />
-            <Article
-              title="silky smooth scrolling in reactjs: a step-by-step guide for react developers"
-              img={article4}
-              date="January 30, 2023"
-              link="https://devdreaming.com/blogs/smooth-scrolling-in-react-js"
-            />
-            <Article
-              title="creating an efficient modal component in react using hooks and portals"
-              img={article5}
-              date="January 29, 2023"
-              link="https://devdreaming.com/blogs/create-efficient-modal-react-portals"
-            />
-            <Article
-              title="build a fabulous todo list app with react, redux and framer-motion"
-              img={article6}
-              date="January 28, 2023"
-              link="https://devdreaming.com/blogs/build-react-redux-framer-motion-todo-app"
-            />
-            <Article
-              title="redux simplified: a beginner's guide for web developers"
-              img={article7}
-              date="January 31, 2023"
-              link="https://devdreaming.com/blogs/redux-simply-explained"
-            />
-            <Article
-              title="what is higher order component (hoc) in react?"
-              date="January 4, 2023"
-              img={article8}
-              link="https://devdreaming.com/blogs/higher-order-component-hoc-react"
-            />
+          {
+              articles.map(article => (
+                <Article
+                  key={article.id}
+                  title={article.attributes.title}
+                  img={article1}
+                  date="January 27, 2023"
+                  link={`/articles/${article.attributes.url}`}
+                />
+              ))
+            }
           </ul>
         </Layout>
       </main>
     </>
   );
 };
+
+export async function getServerSideProps () {
+  const response = await fetch(`http://localhost:1337/api/articles?populate=*`);
+  const { data: articles } = await response.json();
+  return {
+    props: {
+      articles,
+    }
+  }
+}
 
 export default articles;
