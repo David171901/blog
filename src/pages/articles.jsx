@@ -27,11 +27,7 @@ const MovingImg = ({ title, img, link }) => {
   }
 
   return (
-    <Link
-      href={link}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleMouseLeave}
-    >
+    <Link href={link} onMouseMove={handleMouse} onMouseLeave={handleMouseLeave}>
       <h2 className="capitalize text-xl font-semibold hover:underline">
         {title}
       </h2>
@@ -74,7 +70,7 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
   return (
     <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
       <div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
+        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary
     rounded-br-3xl
     "
       />
@@ -101,6 +97,9 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
           {title}
         </h2>
       </Link>
+      <span class="inline-block px-2 py-1 font-bold text-white bg-blue-500 rounded">
+        Primary
+      </span>
       <p className="text-sm mb-2">{summary}</p>
       <span className="text-primary font-semibold dark:text-primaryDark">
         {time}
@@ -109,8 +108,10 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
   );
 };
 
-const articles = ({articles}) => {
-  
+const articles = ({ articles }) => {
+
+  console.log("🚀 ~ file: articles.jsx:170 ~ articles ~ articles:", articles)
+
   return (
     <>
       <Head>
@@ -125,16 +126,19 @@ const articles = ({articles}) => {
       <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
         <Layout className="pt-16">
+          {/* TITULO */}
           <AnimatedText
             text="Desarrolla tus habilidades de programación: artículos, tutoriales  proyectos"
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
-          <h2 className="font-bold text-4xl sm:text-2xl w-full text-center my-16 mt-16">
-            Articulos Destacados
-          </h2>
-          <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
-            {
-              articles.slice(-2).map(article => (
+          {/* ARTICULOS DESTACADOS */}
+          <seccion>
+            <AnimatedText
+              text="Articulos Destacados"
+              className="font-bold !text-4xl sm:!text-2xl w-full text-center my-16 mt-16 dark:!text-light"
+            />
+            <ul className="grid grid-cols-3 gap-12 lg:gap-8 md:grid-cols-1 md:gap-y-16">
+              {articles.slice(-3).map((article) => (
                 <FeaturedArticle
                   key={article.id}
                   img={article.attributes.images.data[0].attributes.url}
@@ -143,15 +147,17 @@ const articles = ({articles}) => {
                   summary={article.attributes.summary}
                   link={`/articles/${article.attributes.url}`}
                 />
-              ))
-            }
-          </ul>
-          <h2 className="font-bold text-4xl sm:text-2xl w-full text-center my-16 mt-32">
-            Todos los Articulos
-          </h2>
-          <ul className="flex flex-col items-center relative">
-          {
-              articles.map(article => (
+              ))}
+            </ul>
+          </seccion>
+          {/* TODOS LOS ARTICULOS */}
+          <section>
+            <AnimatedText
+              text="Todos los Articulos"
+              className="font-bold !text-4xl sm:!text-2xl w-full text-center my-16 mt-16 dark:!text-light"
+            />
+            <ul className="flex flex-col items-center relative">
+              {articles.map((article) => (
                 <Article
                   key={article.id}
                   title={article.attributes.title}
@@ -159,23 +165,23 @@ const articles = ({articles}) => {
                   date="January 27, 2023"
                   link={`/articles/${article.attributes.url}`}
                 />
-              ))
-            }
-          </ul>
+              ))}
+            </ul>
+          </section>
         </Layout>
       </main>
     </>
   );
 };
 
-export async function getServerSideProps () {
+export async function getServerSideProps() {
   const response = await fetch(`http://localhost:1337/api/articles?populate=*`);
   const { data: articles } = await response.json();
   return {
     props: {
       articles,
-    }
-  }
+    },
+  };
 }
 
 export default articles;
