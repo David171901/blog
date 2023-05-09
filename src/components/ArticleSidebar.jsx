@@ -20,13 +20,13 @@ const AnArticle = ({ title, date, link }) => {
       whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       viewport={{ once: true }}
       className="relative w-full p-4 py-6 my-2 rounded-xl flex items-center
-          justify-between bg-light text-dark first:mt-0 border border-solid border-dark
+          justify-between bg-light text-black first:mt-0 border border-solid border-dark
           border-r-4 border-b-4 dark:border-light dark:bg-dark dark:text-light
           sm:flex-col
           "
     >
       <MovingImg title={title} link={link} />
-      <span className="text-primary font-semibold pl-4 dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
+      <span className="text-primary font-semibold pl-4 dark:text-primary sm:self-start sm:pl-0 xs:text-sm">
         {date}
       </span>
     </motion.li>
@@ -35,7 +35,7 @@ const AnArticle = ({ title, date, link }) => {
 
 const ArticleSidebar = ({ writer, article }) => {
   return (
-    <div className="bg-gray-100 text-dark dark:text-light dark:bg-[#0F2F2E] rounded-2xl mx-auto right-0 mt-2">
+    <div className="bg-gray-100 text-black dark:text-light dark:bg-[#0F2F2E] rounded-2xl mx-auto right-0 mt-2">
       <div className="rounded shadow-lg">
         <div className="flex-col justify-center text-center p-6">
           <div>

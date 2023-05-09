@@ -44,7 +44,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
   return (
     <button
       href={href}
-      className={`${className} relative group text-light dark:text-dark my-2`}
+      className={`${className} relative group text-light dark:text-black my-2`}
       onClick={handleClick}
     >
       {title}
@@ -138,7 +138,7 @@ const NavBar = () => {
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
             className={`w-6 h-6 ml-3 flex items-center justify-center rounded-full p-1 ease
-      ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}
+      ${mode === "light" ? "bg-dark text-light" : "bg-light text-black"}
       `}
           >
             {mode === "light" ? (
@@ -211,7 +211,7 @@ const NavBar = () => {
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
               className={`w-6 h-6 ml-3 flex items-center justify-center rounded-full p-1
-      ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}
+      ${mode === "light" ? "bg-dark text-light" : "bg-light text-black"}
       `}
             >
               {mode === "light" ? (

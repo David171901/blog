@@ -42,7 +42,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
       </Link>
 
       <div className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
-        <span className="text-primary font-medium text-xl dark:text-primaryDark xs:text-base">
+        <span className="text-primary font-medium text-xl dark:text-primary xs:text-base">
           {type}
         </span>
         <Link
@@ -54,7 +54,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             {title}
           </h2>
         </Link>
-        <p className="my-2 font-medium text-dark dark:text-light sm:text-sm">
+        <p className="my-2 font-medium text-black dark:text-light sm:text-sm">
           {summary}
         </p>
         <div className="mt-2 flex items-center">
@@ -66,7 +66,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
             href={link}
             target="_blank"
             className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold
-            dark:bg-light dark:text-dark
+            dark:bg-light dark:text-black
             sm:px-4 sm:text-base
             "
           >
@@ -105,7 +105,7 @@ const Project = ({ title, type, img, link, github }) => {
       </Link>
 
       <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className="text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base">
+        <span className="text-primary font-medium text-xl dark:text-primary lg:text-lg md:text-base">
           {type}
         </span>
         <Link
