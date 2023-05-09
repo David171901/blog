@@ -2,9 +2,10 @@ import AnimatedText from '@/components/AnimatedText';
 import Layout from '@/components/Layout'
 import TransitionEffect from '@/components/TransitionEffect';
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link';
-import home from "../../public/images/profile/home.png";
+import Avatar from '@/components/Avatar';
+import Button from '@/components/Button';
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -21,39 +22,32 @@ export default function Home() {
       <TransitionEffect />
       <main className='flex items-center text-black w-full min-h-screen dark:text-light sm:items-start'>
         <Layout className='pt-0 md:pt-16 sm:pt-16'>
-           <div className="flex items-center justify-between w-full lg:flex-col">
-               <div className='w-1/2 md:w-full'>
-                <Image src={home} alt="CodeBucks" className='w-full h-auto lg:hidden md:inline-block md:w-full'
-                priority
-                sizes="(max-width: 768px) 100vw,
-                      (max-width: 1200px) 50vw,
-                      50vw"
-                 />
-               </div>
-               <div className='w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center'>
-                <AnimatedText text="Bienvenido a mi blog de programación." className='!text-6xl !text-left 
-                xl:!text-5xl lg:!text-center lg:!text=6xl md:!text-5xl sm:!text-3xl
-                '/>
-                <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>
-                Aquí encontrarás consejos útiles, tutoriales detallados y proyectos interesantes que te ayudarán a mejorar tus habilidades de programación.
-                </p>
-                <div className='flex items-center self-start mt-2 lg:self-center'>
-                  <Link href="/articles" 
-                  className="flex items-center bg-dark text-light p-2.5 px-6
-                  rounded-lg text-lg font-semibold hover:bg-light hover:text-black
-                  border-2 border-solid border-transparent hover:border-dark
-                  transition-all duration-200 ease-linear
-                  dark:bg-light dark:text-black hover:dark:bg-dark hover:dark:text-light
-                  hover:dark:border-light md:p-2 md:px-4 md:text-base
-                  "
-                  >Leer
-                  
-                  </Link>
-                  {/* <Link href="mailto:abcd@gmail.com" target={"_blank"}
-                  className="ml-4 text-lg font-medium capitalize text-black underline dark:text-light md:text-base"
-                  >Contact</Link> */}
-                </div>
-               </div>
+           <div className=" flex-col items-center justify-center w-full">
+              <AnimatedText
+                text="HEY, I'M DAVID"
+                className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
+              />
+              <AnimatedText
+                text="A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product"
+                className="!font-light !text-3xl sm:!text-xl w-full text-center my-8 dark:!text-light"
+              />
+              <motion.div
+                initial={{ y: 200 }}
+                whileInView={{ y: 0, transition: { duration: 1, ease: "easeInOut" } }}
+                viewport={{ once: true }}
+              >
+                <Avatar className="!w-48 !h-48 mx-auto"/>
+              </motion.div>
+              <motion.div 
+                initial={{ y: 200 }}
+                whileInView={{ y: 0, transition: { duration: 1, ease: "easeInOut" } }}
+                viewport={{ once: true }}
+                className='mx-auto my-16 text-center'
+              >
+                <Link href="mailto:david.pino1@outlook.com" target={"_blank"}>
+                  <Button text="Contact me"></Button>
+                </Link>
+              </motion.div>
            </div>
         </Layout>
 

@@ -28,7 +28,7 @@ const MovingImg = ({ title, img, link }) => {
 
   return (
     <Link href={link} onMouseMove={handleMouse} onMouseLeave={handleMouseLeave}>
-      <h2 className="capitalize text-xl font-semibold hover:underline">
+      <h2 className="capitalize text-xl xs:text-lg font-semibold hover:underline">
         {title}
       </h2>
       <FramerImage
@@ -59,14 +59,14 @@ const Article = ({ img, title, date, link }) => {
         "
     >
       <MovingImg title={title} img={img} link={link} />
-      <span className="text-primary font-semibold pl-4 dark:text-primary sm:self-start sm:pl-0 xs:text-sm">
+      <span className="text-primary font-semibold pl-4 dark:text-primary sm:self-start sm:pl-0 text-base">
         {date}
       </span>
     </motion.li>
   );
 };
 
-const FeaturedArticle = ({ img, title, time, summary, link }) => {
+const FeaturedArticle = ({ img, title, time, summary, link, categories }) => {
   return (
     <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
       <div
@@ -92,25 +92,31 @@ const FeaturedArticle = ({ img, title, time, summary, link }) => {
               50vw"
         />
       </Link>
-      <Link href={link}>
-        <h2 className="capitalize text-2xl font-bold my-2 mt-4 hover:underline xs:text-lg">
-          {title}
-        </h2>
-      </Link>
-      <span class="inline-block px-2 py-1 font-bold text-white bg-blue-500 rounded">
-        Primary
-      </span>
-      <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold dark:text-primary">
-        {time}
-      </span>
+      <section>
+        <Link href={link}>
+          <h2 className="capitalize font-bold my-2 mt-4 hover:underline text-xl xs:text-lg">
+            {title}
+          </h2>
+        </Link>
+        <div className="space-x-4 my-4">
+          {
+            categories.map(category => (
+              <span key={category.attributes.name} className="inline-block px-2 py-1 font-bold text-white rounded bg-black dark:bg-primary ">
+                {category.attributes.name}
+              </span>
+            ))
+          }
+        </div>
+        <p className="text-sm mb-2">{summary}</p>
+        <span className="text-primary font-semibold dark:text-primary">
+          {time}
+        </span>
+      </section>
     </li>
   );
 };
 
 const articles = ({ articles }) => {
-
-  console.log("🚀 ~ file: articles.jsx:170 ~ articles ~ articles:", articles)
 
   return (
     <>
@@ -132,7 +138,7 @@ const articles = ({ articles }) => {
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
           {/* ARTICULOS DESTACADOS */}
-          <seccion>
+          <section>
             <AnimatedText
               text="Articulos Destacados"
               className="font-bold !text-4xl sm:!text-2xl w-full text-center my-16 mt-16 dark:!text-light"
@@ -146,10 +152,11 @@ const articles = ({ articles }) => {
                   time={`${article.attributes.time} minutos de lectura`}
                   summary={article.attributes.summary}
                   link={`/articles/${article.attributes.url}`}
+                  categories={article.attributes.categories.data}
                 />
               ))}
             </ul>
-          </seccion>
+          </section>
           {/* TODOS LOS ARTICULOS */}
           <section>
             <AnimatedText

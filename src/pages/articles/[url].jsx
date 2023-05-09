@@ -10,6 +10,8 @@ import { EyeOpenIcon, ShareIcon } from "@/components/Icons";
 import ArticleSidebar from "@/components/ArticleSidebar";
 
 const Article = ({ article, writer }) => {
+  console.log("🚀 ~ file: [url].jsx:13 ~ Article ~ article, writer:", article, writer)
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -49,7 +51,7 @@ const Article = ({ article, writer }) => {
           <section>
             <AnimatedText
               text={article[0].attributes.title}
-              className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
+              className="!text-center !text-5xl lg:!text-4xl md:!text-3xl sm:!text-2xl"
             />
             <div className="flex md:flex-col justify-center md:items-center text-lg space-x-16 md:space-x-0 my-8">
               <div
@@ -80,7 +82,7 @@ const Article = ({ article, writer }) => {
           <section className="grid grid-cols-3 gap-16">
             <div className="col-span-2 md:col-span-3">
               <section
-                className="text-2xl"
+                className="text-lg text-justify"
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               ></section>
             </div>
