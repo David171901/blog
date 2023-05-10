@@ -12,20 +12,11 @@ const Footer = () => {
     "
     >
       <Layout className="py-8 flex items-center justify-between lg:flex-col lg:py-6">
-        <span>{new Date().getFullYear()} &copy; Reservados todos los derechos.</span>
-        <div className="flex items-center lg:py-2">
-          Apoyame <span className="text-primary dark:text-primary text-2xl px-1">&#9825;</span>
-          por&nbsp;
-          <Link
-            href="https://devdreaming.com"
-            className="underline
-            underline-offset-2
-            "
-            target={"_blank"}
-          >
-            PayPal
-          </Link>
-        </div>
+        <span>{new Date().getFullYear()} &copy; All Rights Reserved.</span>
+        
+        <Link href="mailto:david.pino1@outlook.com" target={"_blank"} className="underline underline-offset-2">
+          Say Hello        
+        </Link>
       </Layout>
     </footer>
   );

@@ -32,15 +32,29 @@ export default function Home() {
                 className="!font-light !text-3xl sm:!text-xl w-full text-center my-8 dark:!text-light"
               />
               <motion.div
-                initial={{ y: 200 }}
-                whileInView={{ y: 0, transition: { duration: 1, ease: "easeInOut" } }}
+                initial={{ y: 200, opacity: 0 }}
+                animate={{
+                  opacity:1,
+                  transition:{
+                      delay:1,
+                      staggerChildren: 0.08,
+                  }
+                }}
+                whileInView={{ y: 0, transition: { duration: 2.5, ease: "easeInOut" } }}
                 viewport={{ once: true }}
               >
                 <Avatar className="!w-48 !h-48 mx-auto"/>
               </motion.div>
               <motion.div 
-                initial={{ y: 200 }}
-                whileInView={{ y: 0, transition: { duration: 1, ease: "easeInOut" } }}
+                initial={{ y: 200, opacity: 0 }}
+                whileInView={{ y: 0, transition: { duration: 2.5, ease: "easeInOut" } }}
+                animate={{
+                  opacity:1,
+                  transition:{
+                      delay:1.5,
+                      staggerChildren: 0.08,
+                  }
+                }}
                 viewport={{ once: true }}
                 className='mx-auto my-16 text-center'
               >
