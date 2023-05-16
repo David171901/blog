@@ -4,23 +4,33 @@ import TransitionEffect from "@/components/TransitionEffect";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/hi.png";
+import FrontEndIcon from "../../public/images/svgs/FrontEndIcon.svg";
+import BackEndIcon from "../../public/images/svgs/BackEndIcon.svg";
+import DatabaseIcon from "../../public/images/svgs/DatabaseIcon.svg";
+import Experience from "@/components/Experience";
 
-const SkillCard = ({ img, title, skills }) => {
+const SkillCard = ({ img, title, skills, progress }) => {
   return (
     <li className="md:mb-0 mb-6 flex flex-col items-center justify-center">
-      <div className="relative col-span-1 w-full h-[500px] md:h-auto p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
+      <div className="relative col-span-1 w-full h-[615px] md:h-auto p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
         <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary rounded-br-3xl" />
         <div className="rounded  p-4  flex flex-col items-center justify-center">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2  bg-primary"></div>
+          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2 bg-light border border-black dark:bor dark:bg-light"><Image src={img} width={16} height={16} className="w-full h-full text-white fill-white"></Image></div>
           <div className="flex flex-col items-center justify-center">
             <h2 className="capitalize font-bold my-2 mt-4 text-xl xs:text-lg">
               {title}
             </h2>
-            {skills.map((skill) => (
-              <p key={skill} className="text-sm mb-2">
-                {skill}
-              </p>
-            ))}
+            <div className="flex flex-col items-center justify-center">
+              {skills.map((skill) => (
+                <p key={skill} className="mb-2">
+                  {skill}
+                </p>
+              ))}
+            </div>
+            <div className="flex flex-col items-center justify-center my-6">
+              <p className="font-semibold mb-2">In Progress</p>
+              <p className="italic font-extralight">{progress}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -68,9 +78,7 @@ export default function Home() {
                 alt="Codebucks"
                 className="w-full h-auto rounded-2xl md:hidden"
                 priority
-                sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </section>
@@ -83,7 +91,7 @@ export default function Home() {
             <ul className="grid grid-cols-3 gap-12 lg:gap-8 md:grid-cols-1 md:gap-y-16">
               <SkillCard
                 title={"FrontEnd"}
-                // img={frontendIcon}
+                img={FrontEndIcon}
                 skills={[
                   "HTML",
                   "CSS",
@@ -96,25 +104,31 @@ export default function Home() {
                   "Next.js",
                   "jQuery",
                 ]}
+                progress="Angular, Jest"
               />
               <SkillCard
                 title={"BackEnd"}
-                // img={backendIcon}
+                img={BackEndIcon}
                 skills={["Python", "Node.js", "Express"]}
+                progress="Express"
               />
               <SkillCard
                 title={"Others"}
-                // img={otherIcon}
+                img={DatabaseIcon}
                 skills={[
                   "GIT",
                   "Linux",
                   "Postgres",
                   "MongoDB",
                   "Figma",
-                  "Docker",
                 ]}
+                progress="AWS, Docker"
               />
             </ul>
+          </section>
+          {/* EXPERIENCE */}
+          <section>
+            <Experience></Experience>
           </section>
         </Layout>
       </main>

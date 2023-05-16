@@ -101,13 +101,13 @@ const NavBar = () => {
         <nav className="flex items-center justify-center">
           <CustomLink href="/" title="Home" className="mr-4" />
           <CustomLink href="/about" title="About" className="mr-4" />
-          <CustomLink href="/articles" title="Articles" className="ml-4" />
+          {/* <CustomLink href="/articles" title="Articles" className="ml-4" /> */}
           <CustomLink href="/projects" title="Projects" className="mx-4" />
         </nav>
 
         <nav className="flex items-center justify-center flex-wrap">
           <motion.a
-            href="https://github.com/"
+            href="https://github.com/David171901"
             target={"_blank"}
             className="w-6 mx-3"
             whileHover={{ y: -2 }}
@@ -116,7 +116,7 @@ const NavBar = () => {
             <GithubIcon />
           </motion.a>
           <motion.a
-            href="https://github.com/"
+            href="https://www.linkedin.com/in/david-marcelo-pino-santillan-946462216/"
             target={"_blank"}
             className="w-6 mx-3"
             whileHover={{ y: -2 }}
@@ -124,7 +124,7 @@ const NavBar = () => {
           >
             <LinkedInIcon />
           </motion.a>
-          <motion.a
+          {/* <motion.a
             href="https://github.com/"
             target={"_blank"}
             className="w-6 mx-3"
@@ -132,7 +132,7 @@ const NavBar = () => {
             whileTap={{ scale: 0.9 }}
           >
             <YoutubeIcon />
-          </motion.a>
+          </motion.a> */}
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -170,12 +170,12 @@ const NavBar = () => {
               className=""
               toggle={handleClick}
             />
-            <CustomMobileLink
+            {/* <CustomMobileLink
               href="/articles"
               title="Articles"
               className=""
               toggle={handleClick}
-            />
+            /> */}
             <CustomMobileLink
               href="/projects"
               title="Projects"
@@ -186,7 +186,7 @@ const NavBar = () => {
 
           <nav className="flex items-center justify-center flex-wrap mt-2">
             <motion.a
-              href="https://github.com/"
+              href="https://github.com/David171901"
               target={"_blank"}
               className="w-6 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
               whileHover={{ y: -2 }}
@@ -195,22 +195,13 @@ const NavBar = () => {
               <GithubIcon />
             </motion.a>
             <motion.a
-              href="https://github.com/"
+              href="https://www.linkedin.com/in/david-marcelo-pino-santillan-946462216/"
               target={"_blank"}
               className="w-6 mx-3 sm:mx-1"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
             >
               <LinkedInIcon />
-            </motion.a>
-            <motion.a
-              href="https://github.com/"
-              target={"_blank"}
-              className="w-6 mx-3 sm:mx-1"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <YoutubeIcon />
             </motion.a>
 
             <button
