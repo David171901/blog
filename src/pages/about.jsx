@@ -16,7 +16,15 @@ const SkillCard = ({ img, title, skills, progress }) => {
       <div className="relative col-span-1 w-full h-[615px] md:h-auto p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
         <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary rounded-br-3xl" />
         <div className="rounded  p-4  flex flex-col items-center justify-center">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2 bg-light border border-black dark:bor dark:bg-light"><Image src={img} width={16} height={16} alt={`Icon ${title}`} className="w-full h-full text-white fill-white"></Image></div>
+          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2 bg-light border border-black dark:bor dark:bg-light">
+            <Image
+              src={img}
+              width={16}
+              height={16}
+              alt={`Icon ${title}`}
+              className="w-full h-full text-white fill-white"
+            ></Image>
+          </div>
           <div className="flex flex-col items-center justify-center">
             <h2 className="capitalize font-bold my-2 mt-4 text-xl xs:text-lg">
               {title}
@@ -24,7 +32,7 @@ const SkillCard = ({ img, title, skills, progress }) => {
             <div className="flex flex-col items-center justify-center">
               {skills.map((skill) => (
                 <div key={skill}>
-                  <p key={skill} className="mb-2" >
+                  <p key={skill} className="mb-2">
                     {skill}
                   </p>
                 </div>
@@ -48,9 +56,7 @@ export default function Home() {
         <title>Portfolio | About me</title>
         <meta
           name="description"
-          content="Explore CodeBucks's Next.js developer portfolio and 
-        discover the latest webapp projects and software engineering articles. 
-        Showcase your skills as a full-stack developer and software engineer."
+          content=""
         />
       </Head>
       <TransitionEffect />
@@ -64,50 +70,70 @@ export default function Home() {
                 className="text-left !text-6xl xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
               />
               <div className="my-8">
-                <motion.p 
+                <motion.p
                   className="font-medium"
                   initial={{ y: 100, opacity: 0 }}
-                  whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+                  whileInView={{
+                    y: 0,
+                    transition: { duration: 1.5, ease: "easeInOut" },
+                  }}
                   animate={{
-                    opacity:1,
-                    transition:{
-                      delay:0.5,
-                        staggerChildren: 0.08,
-                    }
+                    opacity: 1,
+                    transition: {
+                      delay: 0.5,
+                      staggerChildren: 0.08,
+                    },
                   }}
                   viewport={{ once: true }}
                 >
-                  Hello there! I am a frontend/fullstack developer with two years of professional experience building web applications. As a self-taught developer, I am passionate about technology and staying up-to-date with the latest web development trends. With a degree in engineering, I have worked on challenging projects that have allowed me to enhance my skills in handling multiple technologies. I am always on the lookout for new challenges that can help me improve my skills and knowledge.
+                  Hello there! I am a frontend/fullstack developer with two
+                  years of professional experience building web applications. As
+                  a self-taught developer, I am passionate about technology and
+                  staying up-to-date with the latest web development trends.
+                  With a degree in engineering, I have worked on challenging
+                  projects that have allowed me to enhance my skills in handling
+                  multiple technologies. I am always on the lookout for new
+                  challenges that can help me improve my skills and knowledge.
                 </motion.p>
 
-                <motion.p 
+                <motion.p
                   className="my-4 font-medium"
                   initial={{ y: 100, opacity: 0 }}
-                  whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+                  whileInView={{
+                    y: 0,
+                    transition: { duration: 1.5, ease: "easeInOut" },
+                  }}
                   animate={{
-                    opacity:1,
-                    transition:{
-                        delay:1,
-                        staggerChildren: 0.08,
-                    }
+                    opacity: 1,
+                    transition: {
+                      delay: 1,
+                      staggerChildren: 0.08,
+                    },
                   }}
                   viewport={{ once: true }}
                 >
-                  If you are looking for a committed, passionate, and experienced web developer, feel free to contact me. I would love to be a part of your team on exciting and challenging web projects. I am ready to put my skills and experience to work for you!
+                  If you are looking for a committed, passionate, and
+                  experienced web developer, feel free to contact me. I would
+                  love to be a part of your team on exciting and challenging web
+                  projects. I am ready to put my skills and experience to work
+                  for you!
                 </motion.p>
               </div>
             </div>
 
-            <motion.div 
+            <motion.div
               className="col-span-1 relative h-max rounded-2xl bg-light dark:bg-dark dark:border-light md:order-1"
               initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+              whileInView={{
+                y: 0,
+                transition: { duration: 1.5, ease: "easeInOut" },
+              }}
               animate={{
-                opacity:1,
-                transition:{
-                    delay:0.5,
-                    staggerChildren: 0.08,
-                }
+                opacity: 1,
+                transition: {
+                  delay: 0.5,
+                  staggerChildren: 0.08,
+                },
               }}
               viewport={{ once: true }}
             >
@@ -153,13 +179,7 @@ export default function Home() {
               <SkillCard
                 title={"Others"}
                 img={DatabaseIcon}
-                skills={[
-                  "GIT",
-                  "Linux",
-                  "Postgres",
-                  "MongoDB",
-                  "Figma",
-                ]}
+                skills={["GIT", "Linux", "Postgres", "MongoDB", "Figma"]}
                 progress="AWS, Docker"
               />
             </ul>

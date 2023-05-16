@@ -23,7 +23,7 @@ const Details = ({ position, company, companyLink, time, works }) => {
             target="_blank"
             className="text-primary dark:text-primaryDark capitalize"
           >
-            @{company}
+            @ {company}
           </a>
         </h3>
         <span className="capitalize text-dark/75 dark:text-light/75 xs:text-sm">
@@ -31,7 +31,7 @@ const Details = ({ position, company, companyLink, time, works }) => {
         </span>
         <div className="w-full md:text-sm">
           <ul className="list-disc ml-4">
-            {works.map(work => (
+            {works.map((work) => (
               <li key={work}>{work}</li>
             ))}
           </ul>
@@ -66,8 +66,12 @@ const Experience = () => {
             company="Personnel Advantage SAC"
             companyLink="https://www.linkedin.com/company/personnelgroup/"
             time="October 2022 to January 2023"
-            works={["Management and administration of the Wong and Metro web pages using the VTEX CMS.","Content management and web design within the VTEX CMS, including content creation, editing and publishing.","Use of the legacy CMS Portal and the VTEX Headless CMS.",
-            "Ability to work as a team with other developers and web designers, as well as with the marketing and content management team of CENCOSUD RETAIL PERU S.A."]}
+            works={[
+              "Management and administration of the Wong and Metro web pages using the VTEX CMS.",
+              "Content management and web design within the VTEX CMS, including content creation, editing and publishing.",
+              "Use of the legacy CMS Portal and the VTEX Headless CMS.",
+              "Ability to work as a team with other developers and web designers, as well as with the marketing and content management team of CENCOSUD RETAIL PERU S.A.",
+            ]}
           />
 
           <Details
@@ -75,7 +79,18 @@ const Experience = () => {
             company="Aputek"
             companyLink="https://www.linkedin.com/company/aputek/"
             time="August 2021 to present"
-            works={["Development of web applications in general oriented mainly to the health sector.","Development of responsive and adaptive web applications for different devices.", "Development of web applications that consume RESTful APIs using technologies such as Axios, Fetch API or jQuery (Ajax).", "Development of Web Components using technologies such as HTML, CSS, JavaScript.", "Integration of payment systems such as Stripe in web applications.", "Integration of authentication and authorization services using JWT.", "Design and development of user interfaces for web applications using tools such as Figma.", "Migration of vanilla JavaScript projects to React.", "WebSockets implementation for real-time applications.", "Use of libraries such as Leaflet for the integration of interactive maps, graphic libraries such as amChartJS for the creation of dynamic graphics in web applications."]}
+            works={[
+              "Development of web applications in general oriented mainly to the health sector.",
+              "Development of responsive and adaptive web applications for different devices.",
+              "Development of web applications that consume RESTful APIs using technologies such as Axios, Fetch API or jQuery (Ajax).",
+              "Development of Web Components using technologies such as HTML, CSS, JavaScript.",
+              "Integration of payment systems such as Stripe in web applications.",
+              "Integration of authentication and authorization services using JWT.",
+              "Design and development of user interfaces for web applications using tools such as Figma.",
+              "Migration of vanilla JavaScript projects to React.",
+              "WebSockets implementation for real-time applications.",
+              "Use of libraries such as Leaflet for the integration of interactive maps, graphic libraries such as amChartJS for the creation of dynamic graphics in web applications.",
+            ]}
           />
 
           <Details
@@ -83,7 +98,11 @@ const Experience = () => {
             company="Communications and Systems Development"
             companyLink="https://www.linkedin.com/company/commperu/"
             time="September 2022 to May 2023"
-            works={["Experience in engineering projects for the mining sector, with knowledge in equipment maintenance and control systems.","Ability to create and design interactive and custom dashboards using the PIVISION / PISYSTEM platform.", "Experience in the creation of Mockups using graphic design tools such as Figma, for the presentation of project proposals."]}
+            works={[
+              "Experience in engineering projects for the mining sector, with knowledge in equipment maintenance and control systems.",
+              "Ability to create and design interactive and custom dashboards using the PIVISION / PISYSTEM platform.",
+              "Experience in the creation of Mockups using graphic design tools such as Figma, for the presentation of project proposals.",
+            ]}
           />
         </ul>
       </div>
