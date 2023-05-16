@@ -69,9 +69,7 @@ const Article = ({ img, title, date, link }) => {
 const FeaturedArticle = ({ img, title, time, summary, link, categories }) => {
   return (
     <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
-      <div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary rounded-br-3xl"
-      />
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary rounded-br-3xl" />
       <Link
         href={link}
         className="w-full inline-block cursor-pointer overflow-hidden rounded-lg"
@@ -97,13 +95,14 @@ const FeaturedArticle = ({ img, title, time, summary, link, categories }) => {
           </h2>
         </Link>
         <div className="space-x-4 my-4">
-          {
-            categories.map(category => (
-              <span key={category.attributes.name} className="inline-block px-2 py-1 font-bold text-white rounded bg-black dark:bg-primary ">
-                {category.attributes.name}
-              </span>
-            ))
-          }
+          {categories.map((category) => (
+            <span
+              key={category.attributes.name}
+              className="inline-block px-2 py-1 font-bold text-white rounded bg-black dark:bg-primary "
+            >
+              {category.attributes.name}
+            </span>
+          ))}
         </div>
         <p className="text-sm mb-2">{summary}</p>
         <span className="text-primary font-semibold dark:text-primary">
@@ -115,16 +114,13 @@ const FeaturedArticle = ({ img, title, time, summary, link, categories }) => {
 };
 
 const articles = ({ articles }) => {
-
   return (
     <>
       <Head>
         <title>Simple Portfolio Built with Nextjs | Articles Page</title>
         <meta
           name="description"
-          content="Browse through CodeBucks's collection of software engineering articles and 
-        tutorials on Next.js, React.js, web development, and more. 
-        Gain valuable insights and stay up-to-date with SEO tips for building a developer portfolio."
+          content=""
         />
       </Head>
       <TransitionEffect />
