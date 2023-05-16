@@ -6,9 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import project1 from "../../public/images/projects/default.png";
-import CarekoreImage from "../../public/images/projects/Carekore.jpg";
-import PrixtipsImage from "../../public/images/projects/Prixtips.jpg";
-import Veo365Image from "../../public/images/projects/Veo365.jpg";
+import CarekoreImage from "../../public/images/projects/Carekore.png";
+import PrixtipsImage from "../../public/images/projects/Prixtips.png";
+import Veo365Image from "../../public/images/projects/Veo365.png";
+import Fit2FlyImage from "../../public/images/projects/Fit2Fly.png";
 import { motion } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -81,7 +82,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   );
 };
 
-const Project = ({ title, type, img, link, github }) => {
+const Project = ({ title, type, img, linkApp, linkLanding, github }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-center rounded-2xl 
@@ -90,11 +91,11 @@ const Project = ({ title, type, img, link, github }) => {
     >
       <div
         className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
-    rounded-br-3xl dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]
+    rounded-br-3xl dark:bg-primary md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]
     "
       />
       <Link
-        href={link}
+        href={linkLanding || linkApp}
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
@@ -112,7 +113,7 @@ const Project = ({ title, type, img, link, github }) => {
           {type}
         </span>
         <Link
-          href={link}
+          href={linkLanding || linkApp}
           target="_blank"
           className="hover:underline underline-offset-2"
         >
@@ -123,15 +124,22 @@ const Project = ({ title, type, img, link, github }) => {
 
         <div className="w-full flex items-center justify-between">
           <Link
-            href={link}
+            href={linkApp}
             target="_blank"
             className="text-lg font-semibold underline md:text-base"
           >
             Visit
           </Link>
-          <Link href={github} target="_blank" className="w-8 md:w-6">
+          {linkLanding && (<Link
+            href={linkLanding}
+            target="_blank"
+            className="text-lg font-semibold underline md:text-base"
+          >
+            Landing Page
+          </Link>)}
+          {/* <Link href={github} target="_blank" className="w-8 md:w-6">
             <GithubIcon />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </article>
@@ -173,8 +181,8 @@ const projects = () => {
                 type="Website"
                 title="Carekore"
                 img={CarekoreImage}
-                link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
-                github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
+                linkApp="https://carekore.app/login/"
+                linkLanding="https://carekore.com/"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -182,8 +190,8 @@ const projects = () => {
                 type="Website"
                 title="Prixtips"
                 img={PrixtipsImage}
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
+                linkApp="https://prix.tips/"
+                linkLanding=""
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -191,40 +199,21 @@ const projects = () => {
                 type="Website"
                 title="Veo365"
                 img={Veo365Image}
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
-              />
-            </div>
-            {/* 
-            <div className="col-span-12">
-              <FeaturedProject
-                type="Portfolio Website"
-                title="React Portfolio Website"
-                summary="A professional portfolio website using React JS, Framer-motion, and Styled-components. It has smooth page transitions, cool background effects, unique design and it is mobile responsive."
-                img={project4}
-                link="https://devdreaming.com/videos/build-stunning-portfolio-website-react-js-framer-motion"
-                github="https://github.com/codebucks27/react-portfolio-final"
-              />
-            </div>
-
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Website Template"
-                img={project5}
-                title="Agency Website Template"
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
+                linkApp="https://sodimac.vim365.com/account/login"
+                linkLanding="https://veo365.com/home"
                 github="https://github.com/codebucks27/wibe-studio"
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
-                type="Blog Website"
-                img={project6}
-                title="DevDreaming"
-                link="https://devdreaming.com"
-                github="https://github.com/codebucks27"
+                type="Website"
+                title="Travelkore"
+                img={Fit2FlyImage}
+                linkApp="https://travelkore.carekore.app/booking_steps/booking_lab"
+                linkLanding=""
+                github="https://github.com/codebucks27/wibe-studio"
               />
-            </div> */}
+            </div>
           </div>
         </Layout>
       </main>
