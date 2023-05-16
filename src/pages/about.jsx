@@ -8,6 +8,7 @@ import FrontEndIcon from "../../public/images/svgs/FrontEndIcon.svg";
 import BackEndIcon from "../../public/images/svgs/BackEndIcon.svg";
 import DatabaseIcon from "../../public/images/svgs/DatabaseIcon.svg";
 import Experience from "@/components/Experience";
+import { motion } from "framer-motion";
 
 const SkillCard = ({ img, title, skills, progress }) => {
   return (
@@ -42,7 +43,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Awesome Portfolio Built with Nextjs</title>
+        <title>Portfolio | About me</title>
         <meta
           name="description"
           content="Explore CodeBucks's Next.js developer portfolio and 
@@ -61,17 +62,52 @@ export default function Home() {
                 className="text-left !text-6xl xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
               />
               <div className="my-8">
-                <p className="font-medium">
+                <motion.p 
+                  className="font-medium"
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+                  animate={{
+                    opacity:1,
+                    transition:{
+                      delay:0.5,
+                        staggerChildren: 0.08,
+                    }
+                  }}
+                  viewport={{ once: true }}
+                >
                   Hello there! I am a frontend/fullstack developer with two years of professional experience building web applications. As a self-taught developer, I am passionate about technology and staying up-to-date with the latest web development trends. With a degree in engineering, I have worked on challenging projects that have allowed me to enhance my skills in handling multiple technologies. I am always on the lookout for new challenges that can help me improve my skills and knowledge.
-                </p>
+                </motion.p>
 
-                <p className="my-4 font-medium">
+                <motion.p 
+                  className="my-4 font-medium"
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+                  animate={{
+                    opacity:1,
+                    transition:{
+                        delay:1,
+                        staggerChildren: 0.08,
+                    }
+                  }}
+                  viewport={{ once: true }}
+                >
                   If you are looking for a committed, passionate, and experienced web developer, feel free to contact me. I would love to be a part of your team on exciting and challenging web projects. I am ready to put my skills and experience to work for you!
-                </p>
+                </motion.p>
               </div>
             </div>
 
-            <div className="col-span-1 relative h-max rounded-2xl bg-light dark:bg-dark dark:border-light md:order-1"
+            <motion.div 
+              className="col-span-1 relative h-max rounded-2xl bg-light dark:bg-dark dark:border-light md:order-1"
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
+              animate={{
+                opacity:1,
+                transition:{
+                    delay:0.5,
+                    staggerChildren: 0.08,
+                }
+              }}
+              viewport={{ once: true }}
             >
               <Image
                 src={profilePic}
@@ -80,7 +116,7 @@ export default function Home() {
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-            </div>
+            </motion.div>
           </section>
           {/* SKILLS */}
           <section>

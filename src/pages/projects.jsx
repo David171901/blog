@@ -6,6 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import project1 from "../../public/images/projects/default.png";
+import CarekoreImage from "../../public/images/projects/Carekore.jpg";
+import PrixtipsImage from "../../public/images/projects/Prixtips.jpg";
+import Veo365Image from "../../public/images/projects/Veo365.jpg";
 import { motion } from "framer-motion";
 import TransitionEffect from "@/components/TransitionEffect";
 
@@ -139,7 +142,7 @@ const projects = () => {
   return (
     <>
       <Head>
-        <title>Modern Portfolio Built with Nextjs | Projects Page</title>
+        <title>Portfolio | Projects Page</title>
         <meta
           name="description"
           content="Discover the latest webapp projects created by CodeBucks, a Next.js developer with 
@@ -150,12 +153,12 @@ const projects = () => {
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text="Proximamente!"
+            text="Websites I've Contributed to"
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
 
-          <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-12">
+          <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0 my-8">
+            {/* <div className="col-span-12">
               <FeaturedProject
                 type="Proyecto Destacado!"
                 title="What is Lorem Ipsum?"
@@ -164,12 +167,12 @@ const projects = () => {
                 link="https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css"
                 github="https://github.com/codebucks27/CryptoBucks-Final-Code"
               />
-            </div>
-            {/* <div className="col-span-6 sm:col-span-12">
+            </div> */}
+            <div className="col-span-6 sm:col-span-12">
               <Project
-                type="Website Template"
-                title="NFT collection Website"
-                img={project2}
+                type="Website"
+                title="Carekore"
+                img={CarekoreImage}
                 link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
                 github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
               />
@@ -177,13 +180,22 @@ const projects = () => {
             <div className="col-span-6 sm:col-span-12">
               <Project
                 type="Website"
-                title="Fashion Studio Website"
-                img={project3}
+                title="Prixtips"
+                img={PrixtipsImage}
                 link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
                 github="https://github.com/codebucks27/wibe-studio"
               />
             </div>
-
+            <div className="col-span-6 sm:col-span-12">
+              <Project
+                type="Website"
+                title="Veo365"
+                img={Veo365Image}
+                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
+                github="https://github.com/codebucks27/wibe-studio"
+              />
+            </div>
+            {/* 
             <div className="col-span-12">
               <FeaturedProject
                 type="Portfolio Website"
