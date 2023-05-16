@@ -40,14 +40,14 @@ export default function Home() {
                       staggerChildren: 0.08,
                   }
                 }}
-                whileInView={{ y: 0, transition: { duration: 2.5, ease: "easeInOut" } }}
+                whileInView={{ y: 0, transition: { duration: 2, ease: "easeInOut" } }}
                 viewport={{ once: true }}
               >
                 <Avatar className="!w-48 !h-48 mx-auto"/>
               </motion.div>
               <motion.div 
                 initial={{ y: 200, opacity: 0 }}
-                whileInView={{ y: 0, transition: { duration: 2.5, ease: "easeInOut" } }}
+                whileInView={{ y: 0, transition: { duration: 2, ease: "easeInOut" } }}
                 animate={{
                   opacity:1,
                   transition:{

@@ -30,9 +30,9 @@ const Details = ({ position, company, companyLink, time, works }) => {
           {time}
         </span>
         <div className="w-full md:text-sm">
-          <ul class="list-disc ml-4">
+          <ul className="list-disc ml-4">
             {works.map(work => (
-              <li>{work}</li>
+              <li key={work}>{work}</li>
             ))}
           </ul>
         </div>

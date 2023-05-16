@@ -16,16 +16,18 @@ const SkillCard = ({ img, title, skills, progress }) => {
       <div className="relative col-span-1 w-full h-[615px] md:h-auto p-4 bg-light border border-solid border-dark rounded-2xl dark:bg-dark dark:border-light">
         <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-primary rounded-br-3xl" />
         <div className="rounded  p-4  flex flex-col items-center justify-center">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2 bg-light border border-black dark:bor dark:bg-light"><Image src={img} width={16} height={16} className="w-full h-full text-white fill-white"></Image></div>
+          <div className="w-16 h-16 flex items-center justify-center rounded-full mb-5 p-2 bg-light border border-black dark:bor dark:bg-light"><Image src={img} width={16} height={16} alt={`Icon ${title}`} className="w-full h-full text-white fill-white"></Image></div>
           <div className="flex flex-col items-center justify-center">
             <h2 className="capitalize font-bold my-2 mt-4 text-xl xs:text-lg">
               {title}
             </h2>
             <div className="flex flex-col items-center justify-center">
               {skills.map((skill) => (
-                <p key={skill} className="mb-2">
-                  {skill}
-                </p>
+                <div key={skill}>
+                  <p key={skill} className="mb-2" >
+                    {skill}
+                  </p>
+                </div>
               ))}
             </div>
             <div className="flex flex-col items-center justify-center my-6">
