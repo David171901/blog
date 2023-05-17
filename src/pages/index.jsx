@@ -4,7 +4,6 @@ import TransitionEffect from "@/components/TransitionEffect";
 import Head from "next/head";
 import Avatar from "@/components/Avatar";
 import Button from "@/components/Button";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Home() {

@@ -40,7 +40,7 @@ const SkillCard = ({ img, title, skills, progress }) => {
             </div>
             <div className="flex flex-col items-center justify-center my-6">
               <p className="font-semibold mb-2">In Progress</p>
-              <p className="italic font-extralight">{progress}</p>
+              <p className="mb-2">{progress}</p>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function Home() {
               <SkillCard
                 title={"BackEnd"}
                 img={BackEndIcon}
-                skills={["Python", "Node.js", "Express"]}
+                skills={["Python", "Node.js"]}
                 progress="Express"
               />
               <SkillCard

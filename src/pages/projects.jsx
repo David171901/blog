@@ -5,15 +5,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import project1 from "../../public/images/projects/default.png";
-import CarekoreImage from "../../public/images/projects/Carekore.png";
-import PrixtipsImage from "../../public/images/projects/Prixtips.png";
-import Veo365Image from "../../public/images/projects/Veo365.png";
-import Fit2FlyImage from "../../public/images/projects/Fit2Fly.png";
-import { motion } from "framer-motion";
+import CarekoreImage from "../../public/images/projects/Carekore.jpg";
+import PrixtipsImage from "../../public/images/projects/Prixtips.jpg";
+import Veo365Image from "../../public/images/projects/Veo365.jpg";
+import Fit2FlyImage from "../../public/images/projects/Travelkore.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
-
-const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
@@ -32,12 +28,10 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
         target="_blank"
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
       >
-        <FramerImage
+        <Image
           src={img}
           alt={title}
           className="w-full h-auto"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
           priority
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -99,12 +93,15 @@ const Project = ({ title, type, img, linkApp, linkLanding, github }) => {
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
-        <FramerImage
+        <Image
           src={img}
           alt={title}
           className="w-full h-auto"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.2 }}
+          placeholder = 'blur'
+          priority
+          sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              50vw"
         />
       </Link>
 
@@ -166,7 +163,7 @@ const projects = () => {
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
 
-          <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0 my-8">
+          <div className="grid grid-cols-12 gap-24 gap-y-24 xl:gap-x-12 lg:gap-x-6 md:gap-y-16 sm:gap-x-0 my-8">
             {/* <div className="col-span-12">
               <FeaturedProject
                 type="Proyecto Destacado!"
