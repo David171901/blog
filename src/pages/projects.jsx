@@ -9,6 +9,7 @@ import CarekoreImage from "../../public/images/projects/Carekore.jpg";
 import PrixtipsImage from "../../public/images/projects/Prixtips.jpg";
 import Veo365Image from "../../public/images/projects/Veo365.jpg";
 import Fit2FlyImage from "../../public/images/projects/Travelkore.jpg";
+import DynamicFormImage from "../../public/images/projects/DynamicForm.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
@@ -32,6 +33,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
           src={img}
           alt={title}
           className="w-full h-auto"
+          placeholder="blur"
           priority
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -97,7 +99,7 @@ const Project = ({ title, type, img, linkApp, linkLanding, github }) => {
           src={img}
           alt={title}
           className="w-full h-auto"
-          placeholder = 'blur'
+          placeholder="blur"
           priority
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
@@ -150,10 +152,7 @@ const projects = () => {
     <>
       <Head>
         <title>Portfolio | Projects Page</title>
-        <meta
-          name="description"
-          content=""
-        />
+        <meta name="description" content="" />
       </Head>
       <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
@@ -163,17 +162,7 @@ const projects = () => {
             className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
           />
 
-          <div className="grid grid-cols-12 gap-24 gap-y-24 xl:gap-x-12 lg:gap-x-6 md:gap-y-16 sm:gap-x-0 my-8">
-            {/* <div className="col-span-12">
-              <FeaturedProject
-                type="Proyecto Destacado!"
-                title="What is Lorem Ipsum?"
-                summary="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-                img={project1}
-                link="https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css"
-                github="https://github.com/codebucks27/CryptoBucks-Final-Code"
-              />
-            </div> */}
+          <div className="grid grid-cols-12 gap-24 gap-y-24 xl:gap-x-12 lg:gap-x-6 md:gap-y-16 sm:gap-x-0 my-16">
             <div className="col-span-6 sm:col-span-12">
               <Project
                 type="Website"
@@ -210,6 +199,22 @@ const projects = () => {
                 linkApp="https://travelkore.carekore.app/booking_steps/booking_lab"
                 linkLanding=""
                 github="https://github.com/codebucks27/wibe-studio"
+              />
+            </div>
+          </div>
+          <AnimatedText
+            text="My Personal Projects"
+            className="!text-6xl !text-center xl:!text-5xl lg:!text=6xl md:!text-5xl sm:!text-3xl"
+          />
+          <div className="grid grid-cols-12 gap-24 gap-y-24 xl:gap-x-12 lg:gap-x-6 md:gap-y-16 sm:gap-x-0 my-16">
+            <div className="col-span-12">
+              <FeaturedProject
+                type="Featured Project!"
+                title="d-dynamic-form-builder-react"
+                summary="D-Dynamic Form Builder React is a React package that makes it easy to create dynamic forms. It handles all the logic involved in creating and managing dynamic forms, so you can focus on your application's logic."
+                img={DynamicFormImage}
+                link="https://www.npmjs.com/package/d-dynamic-form-builder-react"
+                github="https://github.com/David171901/dynamic-form-builder-react"
               />
             </div>
           </div>
